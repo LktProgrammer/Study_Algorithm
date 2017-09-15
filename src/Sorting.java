@@ -20,5 +20,19 @@ public class Sorting {
 		}
 		return data;
 	}
+	public int[] Insertion_Sort(int[] data,int num)
+	{
+		int tmp,i,j;
+		for(i=1;i<data.length;i++)
+		{
+			tmp = data[i];
+			for(j=i-1;tmp>data[j]&&j>=0;j--)
+			{
+				data[j+1] = data[j];
+			}
+			data[j+1] = tmp;
+		}
+		return data;
+	}
 
 }
