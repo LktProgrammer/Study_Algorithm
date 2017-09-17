@@ -1,6 +1,21 @@
 
 public class Sorting {
 	
+
+	public int[] Insertion_Sort(int[] data,int num)
+	{
+		int tmp,i,j;
+		for(i=1;i<data.length;i++)
+		{
+			tmp = data[i];
+			for(j=i-1;tmp>data[j]&&j>=0;j--)
+			{
+				data[j+1] = data[j];
+			}
+			data[j+1] = tmp;
+		}
+		return data;
+	}
 	public int[] Selection_Sort(int[] data,int num)
 	{
 		int min,tmp;
@@ -20,19 +35,22 @@ public class Sorting {
 		}
 		return data;
 	}
-	public int[] Insertion_Sort(int[] data,int num)
+	public int[] Bubble_Sort(int[] data,int num)
 	{
-		int tmp,i,j;
-		for(i=1;i<data.length;i++)
+		int tmp;
+		for(int i=0;i<num-1;i++)
 		{
-			tmp = data[i];
-			for(j=i-1;tmp>data[j]&&j>=0;j--)
+			for(int j=0;j<=num-2-i;j++)
 			{
-				data[j+1] = data[j];
+				if(data[j]>data[j+1])
+				{
+					tmp=data[j+1];
+					data[j+1] = data[j];
+					data[j] = tmp;
+				}
 			}
-			data[j+1] = tmp;
 		}
 		return data;
 	}
-
+	
 }
