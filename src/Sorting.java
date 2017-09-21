@@ -53,4 +53,46 @@ public class Sorting {
 		return data;
 	}
 	
+	public int[] Quick_Sort(int[] data,int left,int right)
+	{
+		int pivot_index = left;
+		int pivot = data[pivot_index];
+		int hold_left = left;
+		int hold_right = right;
+		
+		left++;
+
+
+		while(right>=left)
+		{
+			while(left<=right &&data[left]<=pivot)
+			{
+				left++;
+			}
+			while(data[right]>=pivot && left<=right)
+				right--;
+			if(left <=right)
+			{
+				int tmp = data[left];
+				data[left] = data[right];
+				data[right]  = tmp;
+			}
+
+		}
+
+		int tmp =data[pivot_index];
+		data[pivot_index] = data[right];
+		data[right]=tmp;
+		
+		if(right >hold_left)
+			data = Quick_Sort(data,hold_left,right-1);
+		
+		if(hold_right>right)
+			data= Quick_Sort(data,right+1,hold_right);
+		
+		return data;
+	}
+	
+
+	
 }
