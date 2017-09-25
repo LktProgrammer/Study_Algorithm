@@ -1,7 +1,7 @@
 
 public class Sorting {
 	
-
+	
 	public int[] Insertion_Sort(int[] data,int num)
 	{
 		int tmp,i,j;
@@ -93,6 +93,55 @@ public class Sorting {
 		return data;
 	}
 	
-
+	public int[] Merge_Sort(int[] data,int first,int last)
+	{			
+		if(last>first)
+		{
+			int middle = (first+last)/2;	
+			Merge_Sort(data,first,middle);
+			Merge_Sort(data,middle+1,last);
+			Sort(data,first,middle,last);
+		}
+		return data;
+	}
 	
+	public void Sort(int[] data, int first,int middle, int last)
+	{
+		int tmp_arr[] = new int[10];	//합병 정렬 임시 저장 
+		int left_start = first;			//분열된 왼쪽 배열 시작
+		int tmp_index = first;			//합병 되는 배열의 시작 
+		int right_start = middle+1;		//분열된 오른쪽 배열 시작
+		
+		while(left_start<=middle && right_start <= last)	//왼쪽 배열과 오른쪽 배열 차례대로 비교하여 임시배열에 넣기
+		{
+			if(data[left_start] < data[right_start])		//왼쪽 배열의 원소가 작을 경우 
+			{
+				tmp_arr[tmp_index] = data[left_start];
+				left_start++;
+			}
+			else											//오른쪽 배열의 원소가 작을 경우
+			{
+				tmp_arr[tmp_index] = data[right_start];
+				right_start++;
+			}
+			tmp_index++;
+		}
+			while(left_start<=middle)						//왼쪽 배열에 아직 원소가 남은 경우
+			{
+				tmp_arr[tmp_index] = data[left_start];
+				left_start++;
+				tmp_index++;
+			}
+			while(right_start<=last)						//오른쪽 배열에 원소가 남은 경우
+			{
+				tmp_arr[tmp_index] = data[right_start];
+				right_start++;
+				tmp_index++;
+			}
+		
+		for(int i=first;i<=last;i++)						//원래 배열에 넣기
+		{
+			data[i] = tmp_arr[i];
+		}
+	}
 }
