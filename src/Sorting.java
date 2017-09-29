@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Sorting {
 	
@@ -143,5 +144,55 @@ public class Sorting {
 		{
 			data[i] = tmp_arr[i];
 		}
+	}
+	public void Radix_Sort(int[] data)
+	{
+		int maxsize = getMaxlength(data);
+		ArrayList<Linear_Queue> bucket = new ArrayList();
+		int powed=1;
+		int index = 0;
+
+		for(int i=0;i<10;i++)		//버킷 생성
+		{
+			bucket.add(new Linear_Queue(10));
+		}
+		
+		for(int i=1;i<=maxsize;i++)
+		{
+			for(int j=0;j<data.length;j++)
+			{	
+				bucket.get((data[j]/powed)%10).EnQueue(data[j]);
+			}
+			for(int k=0;k<10;k++)
+			{
+				
+				int bucket_num = bucket.get(k).rear;
+
+				for(int n=0;n<=bucket_num;n++)
+				{
+					data[index] = bucket.get(k).DeQueue();
+					index++;
+				}
+
+			}
+			index =0;
+			powed *=10;
+		}
+				
+	}
+	public int getMaxlength(int[] data)
+	{
+		int maxsize = 0;
+		for(int i=0;i<data.length;i++)
+		{
+			int length = (int)Math.log10((double)data[i])+1;
+			if(maxsize <length)
+			{
+				maxsize = length;
+			}
+			
+		}
+		
+		return maxsize;
 	}
 }

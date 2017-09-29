@@ -2,15 +2,25 @@
 public class Main {
 	public static void main(String[] args)
 	{
-		int data[] = {5,4,8,2,9,3,11,1,22,34};
-
+		int data[] = {5,42,8,2,943,3,11,1,22,3444};
 		Sorting sort = new Sorting();
-		 data=sort.Merge_Sort(data,0,data.length-1);
+		sort.Radix_Sort(data);
+
 		for(int i=0;i<data.length;i++)
 		{
 			System.out.print(data[i]+",");
-	
+
 		}
+		
+
 	}
 
 }
+/*Sorting sort = new Sorting();
+sort.Shell_Sort(data,data.length);
+for(int i=0;i<data.length;i++)
+{
+	System.out.print(data[i]+",");
+
+}*/
+
