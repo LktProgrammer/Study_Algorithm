@@ -157,15 +157,14 @@ public class Sorting {
 			bucket.add(new Linear_Queue(10));
 		}
 		
-		for(int i=1;i<=maxsize;i++)
+		for(int i=1;i<=maxsize;i++)		//자리수가 가장 큰 수만큼 전체 반복문을 반복합니다.
 		{
-			for(int j=0;j<data.length;j++)
+			for(int j=0;j<data.length;j++)	
 			{	
-				bucket.get((data[j]/powed)%10).EnQueue(data[j]);
+				bucket.get((data[j]/powed)%10).EnQueue(data[j]);	//각 자리수의 맞는 index의 bucket에 넣습니다.
 			}
-			for(int k=0;k<10;k++)
+			for(int k=0;k<10;k++)		//버킷에서 데이터를 가지고옵니다.
 			{
-				
 				int bucket_num = bucket.get(k).rear;
 
 				for(int n=0;n<=bucket_num;n++)
@@ -173,12 +172,10 @@ public class Sorting {
 					data[index] = bucket.get(k).DeQueue();
 					index++;
 				}
-
 			}
 			index =0;
 			powed *=10;
 		}
-				
 	}
 	public int getMaxlength(int[] data)
 	{
@@ -190,9 +187,7 @@ public class Sorting {
 			{
 				maxsize = length;
 			}
-			
 		}
-		
-		return maxsize;
+		return maxsize;			//가장 큰 자리수를 반환합니다.
 	}
 }

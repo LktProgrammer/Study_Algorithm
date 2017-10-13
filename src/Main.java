@@ -2,15 +2,24 @@
 public class Main {
 	public static void main(String[] args)
 	{
-		int data[] = {5,42,8,2,943,3,11,1,22,3444};
-		Sorting sort = new Sorting();
-		sort.Radix_Sort(data);
+		Circular_Queue queue = new Circular_Queue(5);
+		queue.EnQueue(5);
+		queue.EnQueue(5);
+		queue.EnQueue(5);
+		queue.EnQueue(5);
 
-		for(int i=0;i<data.length;i++)
-		{
-			System.out.print(data[i]+",");
+		queue.DeQueue();
+		queue.DeQueue();
+		queue.DeQueue();
+		queue.DeQueue();
 
-		}
+		queue.EnQueue(5);
+		queue.EnQueue(5);
+		queue.EnQueue(5);
+		queue.EnQueue(5);
+		queue.EnQueue(5);
+
+
 		
 
 	}
