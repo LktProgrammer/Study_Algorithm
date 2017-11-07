@@ -2,26 +2,10 @@
 public class Main {
 	public static void main(String[] args)
 	{
-		Circular_Queue queue = new Circular_Queue(5);
-		queue.EnQueue(5);
-		queue.EnQueue(5);
-		queue.EnQueue(5);
-		queue.EnQueue(5);
-
-		queue.DeQueue();
-		queue.DeQueue();
-		queue.DeQueue();
-		queue.DeQueue();
-
-		queue.EnQueue(5);
-		queue.EnQueue(5);
-		queue.EnQueue(5);
-		queue.EnQueue(5);
-		queue.EnQueue(5);
-
-
+		int data[] = new int[] {1,2,3,4,5};
+		Heap heap = new Heap(data,5);
+		heap.Heap_Sort();
 		
-
 	}
 
 }
